@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: Montserrat;
+    overflow-x: hidden;
+}
+
+
+
+.container{
+     background-color: rgb(113, 212, 14);
+     position: relative;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 20px;
+     height: 90px;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+.nav-links li{
+    list-style: none;
+    margin: 10px; 
+    position: relative;
+}
+.nav-links a{
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: rgb(241, 241, 241);
+}
+
+.logo {
+  letter-spacing: 3px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(241, 241, 241);
+}
+.nav-links a::after{
+    content:'';
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background-color: white;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.5s;
+}
+.nav-links a:hover::after{
+    width: 100%;
+}
+ .shape_one{
+     height: 40px;
+     width: 40px;
+     position: relative;
+     background-color: rgb(113, 212, 14);
+     /* background-color: rgb(255, 255, 255); */
+     display: none;
+     cursor: pointer;
+ }
+ .shape_one::after{
+     content: '';
+     position: absolute;
+     height: 20px;
+     width: 40px;
+     background-color: rgb(255, 255, 255);
+ }
+ .shape_one::before{
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 20px;
+    background-color: rgb(255, 255, 255);
+}
+   
+  @media  screen and (max-width:786px) {
+      body{
+          overflow-x: hidden !important;
+          position: relative;
+          width: 100%;
+      }
+      .shape_one{
+          display: block;
+          transition: transform 0.5s;
+      }
+      .nav-links{ 
+          position: absolute;
+          display: flex;
+          top:90px;
+          flex-direction: column;
+          align-items: center;
+          right: 0;
+          height: 90vh;
+          width: 70%;
+          background-color: rgb(113, 212, 14);
+          transform: translateX(100%);
+          transition: transform 0.5s ease-in;  
+      }
+      .nav-links li{
+          opacity: 0;
+          
+      }
+      .nav-active{
+          transform: translateX(0);
+      }
+      .shape-click{
+          transform: rotate(-45deg) translateX(-50px) ;
+      }
+
+      @keyframes slide {
+          from{
+              opacity:0;
+              transform: translateX(30px);
+          }to {
+                opacity: 1;
+                transform: translateX(0);
+          }
+      }
+  }
